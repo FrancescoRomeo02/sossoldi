@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/gestures.dart';
 import '../../../services/database/sossoldi_database.dart';
 import '../../../ui/device.dart';
 import '../../../services/csv/csv_file_picker.dart';
@@ -82,11 +83,15 @@ class _BackupPageState extends ConsumerState<BackupPage> {
     }
   }
 
-  Future<void> _handleExport() async {
+  Future<void> _handleExport({bool onlyHeader = false}) async {
     try {
       CSVFilePicker.showLoading(context, 'Exporting data...');
-
-      final csv = await SossoldiDatabase.instance.exportToCSV();
+      String csv;
+      if (onlyHeader) {
+        csv = await SossoldiDatabase.instance.exportToCSV(headerOnly: true);
+      } else {
+        csv = await SossoldiDatabase.instance.exportToCSV();
+      }
 
       if (!mounted) return;
       CSVFilePicker.hideLoading(context);
@@ -165,8 +170,29 @@ class _BackupPageState extends ConsumerState<BackupPage> {
                             context: context,
                             builder: (context) => AlertDialog(
                               title: Text('Warning: Data Overwrite'),
-                              content: Text(
-                                  'Importing this file will permanently replace your existing data. This action cannot be undone. Ensure you have a backup before proceeding.'),
+                              content: RichText(
+                                text: TextSpan(
+                                  style: DefaultTextStyle.of(context).style,
+                                  children: [
+                                    TextSpan(
+                                      text:
+                                          'Importing this file will permanently replace your existing data. This action cannot be undone. Ensure you have a backup before proceeding. If you need a sample file for the CSV structure, ',
+                                    ),
+                                    TextSpan(
+                                      text: 'it is available.',
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          _handleExport(onlyHeader: true);
+                                          print("Link cliccato");
+                                        },
+                                    ),
+                                  ],
+                                ),
+                              ),
                               actions: [
                                 TextButton(
                                   onPressed: () {

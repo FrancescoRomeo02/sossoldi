@@ -58,7 +58,7 @@ class SossoldiDatabase {
     await instance._migrationManager.migrate(database, oldVersion, newVersion);
   }
 
-  Future<String> exportToCSV() async {
+  Future<String> exportToCSV({bool headerOnly = false}) async {
     final db = await database;
     final Directory documentsDir = await getApplicationDocumentsDirectory();
     final String csvDir = join(documentsDir.path, 'sossoldi_exports');
@@ -84,7 +84,13 @@ class SossoldiDatabase {
 
     // Create header row
     List<String> headers = allColumns.toList();
-    allData.add(headers);
+
+    // Return only the headers if requested
+    if (headerOnly) {
+      List<String> headers = allColumns.toList();
+      String header = headers.join(',');
+      return header;
+    }
 
     // Second pass: add data from all tables
     for (var table in tables) {
