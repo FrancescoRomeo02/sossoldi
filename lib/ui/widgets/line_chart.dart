@@ -131,13 +131,6 @@ class _LineChartSample2State extends ConsumerState<LineChartWidget> {
     String label = '';
     switch (widget.period) {
       case Period.year:
-        final int month = value.toInt();
-        text = Text(
-          month >= 1 && month <= 10
-              ? DateFormat.MMM().format(DateTime(0, month + 1))
-              : '',
-          style: style,
-        );
         label = DateFormat.MMM().format(DateTime(2000, index + 1));
         break;
       case Period.month:

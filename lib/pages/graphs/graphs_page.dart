@@ -137,18 +137,10 @@ class _GraphsPageState extends ConsumerState<GraphsPage> {
                                   ),
                                 ),
                                 Text(
-                                  " VS last month",
+                                  ' ${l10n.vsLastMonth}',
                                   style: Theme.of(context).textTheme.labelLarge
                                       ?.copyWith(fontWeight: FontWeight.w300),
                                 ),
-                              ),
-                              Text(
-                                l10n.vsLastMonth,
-                                style: Theme.of(context).textTheme.labelLarge
-                                    ?.copyWith(fontWeight: FontWeight.w300),
-                              ),
-                            ],
-                          ),
                               ],
                             ),
                         ],
