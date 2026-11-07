@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../l10n/app_localizations.dart';
 import '../../model/budget.dart';
 import '../../model/category_transaction.dart';
+import '../../model/transaction.dart';
 import '../../providers/currency_provider.dart';
 import '../../ui/device.dart';
 import '../../ui/extensions.dart';
@@ -28,7 +29,7 @@ class _ManageBudgetPageState extends ConsumerState<ManageBudgetPage> {
   void _loadCategories() async {
     categories = await ref.read(allParentCategoriesProvider.future);
     categories.removeWhere(
-      (element) => element.type == CategoryTransactionType.income,
+      (element) => !element.type.supports(TransactionType.expense),
     );
     budgets = await ref.read(budgetsProvider.notifier).getBudgets();
     usedCategoryIds = budgets.map((b) => b.idCategory).toSet();

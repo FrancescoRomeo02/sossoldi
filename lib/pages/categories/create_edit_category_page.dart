@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constants/constants.dart';
 import '../../../constants/style.dart';
 import '../../../model/category_transaction.dart';
+import '../../../model/transaction.dart';
 import '../../../providers/categories_provider.dart';
 import '../../../providers/transactions_provider.dart';
 import '../../../ui/device.dart';
@@ -198,13 +199,13 @@ class _CreateEditCategoryPage extends ConsumerState<CreateEditCategoryPage> {
                         .where(
                           (category) =>
                               !widget.hideIncome ||
-                              category == CategoryTransactionType.expense,
+                              category.supports(TransactionType.expense),
                         )
                         .map((CategoryTransactionType type) {
                           return DropdownMenuItem<CategoryTransactionType>(
                             value: type,
                             child: Text(
-                              type.name.capitalize(),
+                              type.label,
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                           );

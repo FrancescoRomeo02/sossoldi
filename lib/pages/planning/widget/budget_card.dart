@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constants/style.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../model/category_transaction.dart';
+import '../../../model/transaction.dart';
 import '../../../providers/categories_provider.dart';
 import '../../../ui/extensions.dart';
 import '../../../ui/widgets/default_container.dart';
@@ -63,9 +64,11 @@ class BudgetCard extends ConsumerWidget {
                                   transactions
                                       .where(
                                         (t) =>
-                                            t.idCategory == budget.idCategory ||
-                                            t.categoryParent ==
-                                                budget.idCategory,
+                                            t.type == TransactionType.expense &&
+                                            (t.idCategory ==
+                                                    budget.idCategory ||
+                                                t.categoryParent ==
+                                                    budget.idCategory),
                                       )
                                       .fold(0.0, (sum, t) => sum + t.amount)
                                       .toCurrency(),
