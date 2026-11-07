@@ -248,5 +248,6 @@
   "selectALanguage": "Selecciona un idioma",
   "systemLanguage": "Idioma del sistema",
   "reminderNotificationTitle": "¡Recuerda registrar tus nuevos gastos!",
-  "reminderNotificationBody": "Sossoldi está esperando tus últimas transacciones. No pierdas de vista tus movimientos y anota tus gastos más recientes."
+  "reminderNotificationBody": "Sossoldi está esperando tus últimas transacciones. No pierdas de vista tus movimientos y anota tus gastos más recientes.",
+  "incomeAndExpense": "Ingreso y gasto"
 }

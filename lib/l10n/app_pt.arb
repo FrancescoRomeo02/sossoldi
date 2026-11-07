@@ -248,5 +248,6 @@
   "selectALanguage": "Selecione um idioma",
   "systemLanguage": "Idioma do sistema",
   "reminderNotificationTitle": "Lembre-se de registar as novas despesas!",
-  "reminderNotificationBody": "O Sossoldi está à espera das suas últimas transações. Não perca de vista os seus movimentos financeiros e registe as despesas mais recentes."
+  "reminderNotificationBody": "O Sossoldi está à espera das suas últimas transações. Não perca de vista os seus movimentos financeiros e registe as despesas mais recentes.",
+  "incomeAndExpense": "Receita e despesa"
 }

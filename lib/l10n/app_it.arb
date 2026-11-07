@@ -173,7 +173,7 @@
   "monthlyBudgetTotal": "Totale budget mensile:",
   "nextStep": "Passaggio successivo",
   "continueWithoutBudget": "Continua senza budget",
-  "step2Of2": "Passaggio 2 DI 2",
+  "step2Of2": "Passaggio 2 di 2",
   "setLiquidityInMainAccount": "Imposta la liquidità nel tuo conto principale",
   "addMoreAccounts": "Sarai in grado di aggiungere altri account dall'app.",
   "liquidityDescription": "Verrà utilizzata come base a cui aggiungere entrate, spese e calcolare il tuo patrimonio.\nPotrai aggiungere altri conti all'interno dell'app.",
@@ -248,5 +248,6 @@
   "selectALanguage": "Seleziona una lingua",
   "systemLanguage": "Lingua del sistema",
   "reminderNotificationTitle": "Ricordati di registrare le nuove spese!",
-  "reminderNotificationBody": "Sossoldi aspetta le tue ultime transazioni. Non perdere di vista i tuoi movimenti e inserisci le spese più recenti."
+  "reminderNotificationBody": "Sossoldi aspetta le tue ultime transazioni. Non perdere di vista i tuoi movimenti e inserisci le spese più recenti.",
+  "incomeAndExpense": "Entrata e spesa"
 }

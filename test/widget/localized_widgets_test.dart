@@ -5,6 +5,7 @@ import 'package:sossoldi/l10n/app_localizations.dart';
 import 'package:sossoldi/model/bank_account.dart';
 import 'package:sossoldi/pages/accounts/widgets/confirm_account_deletion_dialog.dart';
 import 'package:sossoldi/pages/settings/general/widgets/language_selector_dialog.dart';
+import 'package:sossoldi/pages/transactions/create_transaction/widgets/recurrence_selector.dart';
 import 'package:sossoldi/providers/locale_provider.dart';
 import 'package:sossoldi/providers/settings_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -90,5 +91,22 @@ void main() {
 
     expect(find.text('Lingua'), findsOneWidget);
     expect(prefs.getString('app_locale'), 'it');
+  });
+
+  testWidgets('recurrence list is shown in Italian', (tester) async {
+    await tester.pumpWidget(
+      const ProviderScope(
+        child: MaterialApp(
+          locale: Locale('it'),
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          home: RecurrenceSelector(),
+        ),
+      ),
+    );
+
+    expect(find.text('Giornaliera'), findsOneWidget);
+    expect(find.text('Settimanale'), findsOneWidget);
+    expect(find.text('Daily'), findsNothing);
   });
 }

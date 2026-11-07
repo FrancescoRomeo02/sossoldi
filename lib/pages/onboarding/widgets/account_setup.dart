@@ -58,7 +58,7 @@ class _AccountSetupState extends ConsumerState<AccountSetup> {
           child: Column(
             children: [
               Text(
-                l10n.setupMonthlyBudgets,
+                l10n.step2Of2.toUpperCase(),
                 style: Theme.of(context).textTheme.labelSmall,
               ),
               const SizedBox(height: Sizes.xl),

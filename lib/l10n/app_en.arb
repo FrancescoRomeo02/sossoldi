@@ -173,7 +173,7 @@
   "monthlyBudgetTotal": "Monthly budget total:",
   "nextStep": "Next step",
   "continueWithoutBudget": "Continue without budget",
-  "step2Of2": "Step 2 OF 2",
+  "step2Of2": "Step 2 of 2",
   "setLiquidityInMainAccount": "Set the liquidity in your main account",
   "addMoreAccounts": "You'll be able to add more accounts within the app.",
   "liquidityDescription": "It will be used as a baseline to which you can add income, expenses and calculate your wealth.\nYou'll be able to add more accounts within the app.",
@@ -248,5 +248,6 @@
   "selectALanguage": "Select a language",
   "systemLanguage": "System language",
   "reminderNotificationTitle": "Remember to log new expenses!",
-  "reminderNotificationBody": "Sossoldi is waiting for your latest transactions. Don't lose sight of your financial movements, and input your most recent expenses."
+  "reminderNotificationBody": "Sossoldi is waiting for your latest transactions. Don't lose sight of your financial movements, and input your most recent expenses.",
+  "incomeAndExpense": "Income & Expense"
 }

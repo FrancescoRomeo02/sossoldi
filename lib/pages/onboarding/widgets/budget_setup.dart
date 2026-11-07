@@ -47,7 +47,7 @@ class _BudgetSetupState extends ConsumerState<BudgetSetup> {
           child: Column(
             children: [
               Text(
-                l10n.step1Of2,
+                l10n.step1Of2.toUpperCase(),
                 style: Theme.of(context).textTheme.labelSmall,
               ),
               const SizedBox(height: Sizes.xl),
